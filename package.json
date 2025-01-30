@@ -11,6 +11,7 @@
   },
   "homepage": "https://brutal.elian.codes",
   "scripts": {
+    "tinacms": "tinacms",
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
