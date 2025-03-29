@@ -1,6 +1,6 @@
 ---
 import Layout from './Layout.astro'; // Use the main layout
-import '../../styles/blog-style-brutal.css'; // Import blog styles
+import '../styles/blog-style-brutal.css'; // Import blog styles
 
 interface Props {
   title: string;
@@ -12,7 +12,7 @@ interface Props {
 const { title, pubDate, postStyle, image } = Astro.props;
 ---
 
-<Layout title={title} cssFile="../../styles/blog-style-brutal.css">
+<Layout title={title} cssFile="../styles/blog-style-brutal.css">
     <article class:list={["blog-post", postStyle]}>
         <h2>{title}</h2>
         {pubDate && <span class="post-meta">Posted: {pubDate}</span>}
