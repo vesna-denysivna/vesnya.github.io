@@ -60,12 +60,15 @@ const blogPosts = await getCollection('blog'); // 'blog' is your content collect
                 </div>
             </aside>
 
-            <main class="column blog-column">
-                {blogPosts.map((post) => (
-                    <BlogPostLayout {...post.data} postStyle={post.data.postStyle}>
-                        <Content components={{ /* Override components if needed */ }} />
-                    </BlogPostLayout>
-                ))}
+        <main class="column blog-column">
+                {blogPosts.map(async (post) => { // Note the 'async' here if needed, though usually not required for simple Content render
+                    const { Content } = await post.render(); // Destructure Content from post.render()
+                    return (
+                        <BlogPostLayout {...post.data} postStyle={post.data.postStyle}>
+                            <Content /> {/* Now use the destructured Content component */}
+                        </BlogPostLayout>
+                    );
+                })}
             </main>
 
             <aside class="column extras-column">
