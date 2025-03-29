@@ -3,12 +3,7 @@
   "version": "1.2.0",
   "private": false,
   "type": "module",
-  "packageManager": "pnpm@1.22.22",
-  "author": {
-    "name": "Elian Van Cutsem",
-    "email": "hello@elian.codes",
-    "url": "https://www.elian.codes/"
-  },
+  "packageManager": "yarn",
   "homepage": "https://brutal.elian.codes",
   "scripts": {
     "tinacms": "tinacms",
