@@ -72,7 +72,7 @@ jobs:
         env:
           TINA_PUBLIC_CLIENT_ID: ${{ secrets.TINA_PUBLIC_CLIENT_ID }}
           TINA_TOKEN: ${{ secrets.TINA_TOKEN }}
-        run: npm build
+        run: npm run build
   # This assumes that your "build" script in your
   # package.json is "tinacms build"
       - name: Build with Astro
