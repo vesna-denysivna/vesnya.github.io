@@ -63,7 +63,7 @@ jobs:
       - name: Enable Corepack
         run: corepack enable
       - name: Install dependencies
-        run: yarn install # or npm install
+        run: pnpm install # or npm install
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
@@ -74,7 +74,7 @@ jobs:
         env:
           TINA_PUBLIC_CLIENT_ID: ${{ secrets.TINA_PUBLIC_CLIENT_ID }}
           TINA_TOKEN: ${{ secrets.TINA_TOKEN }}
-        run: yarn build
+        run: pnpm build
   # This assumes that your "build" script in your
   # package.json is "tinacms build"
       - name: Build with Astro
