@@ -1,0 +1,178 @@
+/* === BRUTALIST Y2K CORE === */
+:root {
+    /* Keep Y2K Colors */
+    --y2k-blue: #0055cc;
+    --y2k-pink: #ff69b4;
+    --y2k-lime: #32cd32;
+    --weird-purple: #8a2be2;
+    --bg-main: #f0f0f0; /* Starker background */
+    --text-dark: #111;
+    --border-main: #000;
+    --accent-bg: #fff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* Remove ALL rounding */
+    border-radius: 0 !important;
+}
+
+html, body {
+    height: 100%;
+    /* Rely on system fonts - Arial/Helvetica more brutalist, Verdana leans Y2K */
+    font-family: 'Arial', 'Helvetica', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bg-main);
+    color: var(--text-dark);
+    padding: 20px; /* Add padding to body for spacing */
+}
+
+/* === CONTAINER & BLOCKS === */
+.container {
+    background-color: var(--accent-bg);
+    padding: 0; /* Padding handled by inner blocks */
+    max-width: 550px;
+    width: 100%;
+    border: 3px solid var(--border-main); /* THICK main border */
+    /* Harsh offset shadow effect using border */
+    box-shadow: 5px 5px 0px 0px var(--y2k-blue);
+}
+
+.header-block,
+.content-block,
+.footer-block {
+    padding: 25px 30px;
+    border-bottom: 2px dashed var(--border-main); /* Separator lines */
+}
+
+.footer-block {
+    border-bottom: none; /* No border on the last block */
+    background-color: #e0e0e0; /* Slightly different footer bg */
+}
+
+/* === ELEMENTS === */
+h1 {
+    font-size: 2.8em; /* Larger, more impactful */
+    font-weight: bold;
+    color: var(--y2k-pink); /* Use Y2K color directly */
+    letter-spacing: 1px;
+    text-align: center;
+    margin-bottom: 15px;
+    text-transform: uppercase; /* Brutalist often uses uppercase */
+    /* Remove text-shadow */
+}
+
+.image-placeholder {
+    margin-bottom: 25px;
+    border: 2px solid var(--border-main);
+    padding: 5px; /* Keep padding for visual spacing */
+    background: repeating-linear-gradient(
+        45deg,
+        #ccc,
+        #ccc 5px,
+        #ddd 5px,
+        #ddd 10px
+    ); /* Simple pattern instead of plain bg */
+    text-align: center; /* Center image within placeholder */
+}
+
+.image-placeholder img {
+    display: inline-block; /* Correct display for centering */
+    max-width: 100%;
+    height: auto;
+    /* Maybe add a harsh filter */
+    filter: contrast(1.5) brightness(0.9);
+    border: 1px solid var(--y2k-lime); /* Inner border */
+}
+
+.entry-text {
+    font-family: 'Courier New', Courier, monospace; /* Keep monospace */
+    font-size: 1.2em; /* Slightly larger */
+    color: var(--text-dark);
+    margin-bottom: 30px;
+    line-height: 1.6;
+    text-align: center;
+    border: 1px dotted var(--weird-purple); /* Add simple border */
+    padding: 10px;
+    background-color: #fafafa;
+}
+
+.cta-button {
+    display: block; /* Make it block level */
+    width: fit-content; /* Adjust width to content */
+    margin: 0 auto; /* Center button */
+    padding: 10px 35px; /* More padding */
+    font-size: 1.2em;
+    font-weight: bold;
+    color: var(--text-dark);
+    text-decoration: none;
+    text-transform: uppercase; /* Uppercase text */
+    text-align: center;
+    /* Flat color, stark border */
+    background-color: var(--y2k-lime);
+    border: 3px solid var(--border-main);
+    box-shadow: 3px 3px 0px 0px var(--y2k-pink); /* Simple offset shadow */
+    transition: background-color 0.15s ease-out, box-shadow 0.15s ease-out, transform 0.15s ease-out;
+}
+
+.cta-button:hover,
+.cta-button:focus {
+    background-color: var(--y2k-pink); /* Change bg on hover */
+    color: var(--accent-bg);
+    box-shadow: 3px 3px 0px 0px var(--y2k-lime); /* Swap shadow color */
+    outline: none;
+    transform: translate(-2px, -2px); /* Slight shift */
+    box-shadow: 5px 5px 0px 0px var(--y2k-blue); /* Larger shadow on hover */
+
+}
+
+.cta-button:active {
+    transform: translate(0px, 0px); /* Back to original position */
+    box-shadow: 1px 1px 0px 0px var(--border-main); /* Minimal shadow on active */
+}
+
+footer {
+    margin-top: 0; /* Handled by block spacing */
+}
+
+.footer-text {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9em;
+    color: #555;
+    letter-spacing: 1px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+/* === Basic Responsiveness === */
+@media (max-width: 600px) {
+    body {
+      padding: 10px;
+    }
+    .container {
+        max-width: 100%;
+        box-shadow: 3px 3px 0px 0px var(--y2k-blue); /* Reduce shadow on mobile */
+    }
+    .header-block,
+    .content-block,
+    .footer-block {
+        padding: 20px 15px;
+    }
+    h1 {
+        font-size: 2em;
+    }
+    .entry-text {
+        font-size: 1em;
+    }
+    .cta-button {
+        padding: 8px 25px;
+        font-size: 1em;
+    }
+}
