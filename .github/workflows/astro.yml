@@ -62,8 +62,6 @@ jobs:
           cache-dependency-path: ${{ env.BUILD_PATH }}/${{ steps.detect-package-manager.outputs.lockfile }}
       - name: Enable Corepack
         run: corepack enable
-      - name: Install dependencies
-        run: pnpm install # or npm install
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
