@@ -3,7 +3,7 @@
   "version": "1.2.0",
   "private": false,
   "type": "module",
-  "packageManager": "yarn",
+  "packageManager": "pnpm@1.22.22",
   "homepage": "https://brutal.elian.codes",
   "scripts": {
     "tinacms": "tinacms",
