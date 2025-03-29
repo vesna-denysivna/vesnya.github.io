@@ -1,0 +1,117 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import BlogPostLayout from '../../layouts/BlogPostLayout.astro'; // Use BlogPostLayout for each post
+import '../styles/blog-style-brutal.css'; // Import blog styles
+import { getCollection } from 'astro:content';
+
+const pageTitle = "vesnya.space // the void echoes [brutal]";
+const blogPosts = await getCollection('blog'); // 'blog' is your content collection name
+---
+
+<Layout title={pageTitle} cssFile="../styles/blog-style-brutal.css">
+    <div class="page-wrapper">
+
+        <header class="top-bar">
+            <div class="logo">vesnya<span>.space</span></div>
+            <nav>
+                <a href="/">Home</a>
+                <a href="/blog" class="active">Blog_</a>
+                <a href="#">Profile?</a>
+                <a href="#">Mail(0)</a>
+                <a href="#">???</a>
+            </nav>
+        </header>
+
+        <div class="main-grid">
+            <aside class="column profile-column">
+                <div class="widget profile-box">
+                    <h2>// Your Host //</h2>
+                    <img src="https://picsum.photos/seed/profile1/150/150?grayscale" alt="Distorted profile picture" class="profile-pic">
+                    <h3>Vesnya</h3>
+                    <p class="status"><em>Status:</em> observing the static...</p>
+                    <hr class="pixel-divider" />
+                    <div class="details">
+                        <span>Location: The In-Between</span>
+                        <span>Mood: Synthetic</span>
+                        <span>Online: [ALWAYS]</span>
+                    </div>
+                </div>
+
+                <div class="widget about-me">
+                    <h3>&lt;About_Me&gt;</h3>
+                    <p>Just a collection of echoes in the digital drift. Sometimes the screen looks back. Welcome to the space where the pixels hum a strange tune. Nothing is quite solid here. Remember dialing up?</p>
+                </div>
+
+                <div class="widget friends-space">
+                    <h3>Friend_Units (3)</h3>
+                    <div class="friend-list">
+                        <div class="friend"><img src="https://picsum.photos/seed/friend1/50/50?grayscale" alt="friend avatar"><span>Entity_01</span></div>
+                        <div class="friend"><img src="https://picsum.photos/seed/friend2/50/50?grayscale" alt="friend avatar"><span>Gl1tchBot</span></div>
+                        <div class="friend"><img src="https://picsum.photos/seed/friend3/50/50?grayscale" alt="friend avatar"><span>TheWatcher</span></div>
+                    </div>
+                    <a href="#" class="widget-button">Request Connection?</a>
+                </div>
+
+                <div class="widget music-player">
+                     <h3>// Now_Playing //</h3>
+                     <p><strong>Track:</strong> Static Lullaby - The Void</p>
+                     <div class="player-controls">[ PLAY | | PAUSE | &lt;&lt; | &gt;&gt; ]</div>
+                     <div class="volume">[ VOL: |||||----- ]</div>
+                </div>
+            </aside>
+
+            <main class="column blog-column">
+                {blogPosts.map((post) => (
+                    <BlogPostLayout {...post.data} postStyle={post.data.postStyle}>
+                        <Content components={{ /* Override components if needed */ }} />
+                    </BlogPostLayout>
+                ))}
+            </main>
+
+            <aside class="column extras-column">
+                <div class="widget fake-ad">
+                    <h3>** SYSTEM ALERT **</h3>
+                    <img src="https://picsum.photos/seed/ad1/150/80?grayscale&contrast=2" alt="Harsh ad visual">
+                    <p>UNSTABLE MEMORY DETECTED! OPTIMIZE NOW! SYNERGIZE YOUR DATASTREAM!</p>
+                    <a href="#" class="widget-button alert">CLICK IMMEDIATE!</a>
+                </div>
+
+                <div class="widget visitor-counter">
+                    <h3>// Site_Access_Log //</h3>
+                    <p>Connections:</p>
+                    <div class="counter-display">001338</div>
+                    <p>Since Epoch Null.</p>
+                </div>
+
+                <div class="widget comments-section">
+                     <h3>Latest_Fragments</h3>
+                     <div class="comment">
+                         <span class="comment-author">Anon_User_05:</span>
+                         <p>These borders hurt my eyes. Good.</p>
+                     </div>
+                      <div class="comment">
+                         <span class="comment-author">::LostSignal:::</span>
+                         <p>Less glitter, more edge. Structure is comforting?</p>
+                     </div>
+                     <a href="#" class="widget-button">Leave Fragment...</a>
+                </div>
+
+                 <div class="widget pixel-art-corner">
+                    <h3>Pixel_Dump</h3>
+                    <pre>
+  / \_ / \
+ ( \. ./ )
+ > (__) <
+ (______)
+                    </pre>
+                 </div>
+            </aside>
+        </div>
+
+        <footer class="page-footer">
+            <p>&copy; 2024 vesnya.space // Raw Data Feed // Rendered via Terminal (presumed)</p>
+            <p class="weird-footer-text">:: packet loss probable :: hit ctrl+r ::</p>
+        </footer>
+
+    </div>
+</Layout>
